@@ -14,6 +14,9 @@ import {
 import { databases } from "../utils/Appwrite";
 import { ID } from "appwrite";
 
+const APPWRITE_DATABASE_ID = import.meta.env.VITE_APPWRITE_DATABASE_ID;
+const APPWRITE_COLLECTION_ID = import.meta.env.VITE_APPWRITE_COLLECTION_ID;
+
 function CurrentMonthBox() {
   const title = React.useRef<HTMLInputElement | null>(null);
   const amount = React.useRef<HTMLInputElement | null>(null);
@@ -33,8 +36,8 @@ function CurrentMonthBox() {
       description: description.current?.value,
     };
     const promise = databases.createDocument(
-      "64a07c619c6217405a98",
-      "64a0e9718c73a6cec3a3",
+      APPWRITE_DATABASE_ID,
+      APPWRITE_COLLECTION_ID,
       ID.unique(),
       data
     );
