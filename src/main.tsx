@@ -1,0 +1,19 @@
+import React from "react";
+import ReactDOM from "react-dom/client";
+import App from "./App.tsx";
+import "./index.css";
+import "../types.d.ts";
+import { ChakraProvider } from "@chakra-ui/react";
+import UserProvider from "./utils/contexts/UserProvider.tsx";
+
+ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
+  <React.StrictMode>
+    <UserProvider>
+      <ChakraProvider
+        toastOptions={{ defaultOptions: { position: "top-right" } }}
+      >
+        <App />
+      </ChakraProvider>
+    </UserProvider>
+  </React.StrictMode>
+);
