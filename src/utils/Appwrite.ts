@@ -1,6 +1,6 @@
 import { Client, Databases, Account } from "appwrite";
 
-const APPWRITE_END_POINT = import.meta.env.VITE_APPWRITE_END_POINT;
+const APPWRITE_END_POINT = import.meta.env.VITE_APPWRITE_ENDPOINT;
 const APPWRITE_PROJECT_ID = import.meta.env.VITE_APPWRITE_PROJECT_ID;
 const client = new Client()
   .setEndpoint(APPWRITE_END_POINT)

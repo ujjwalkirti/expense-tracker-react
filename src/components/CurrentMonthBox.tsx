@@ -4,6 +4,7 @@ import {
   Button,
   FormControl,
   FormLabel,
+  Heading,
   Input,
   NumberInput,
   NumberInputField,
@@ -23,6 +24,12 @@ function CurrentMonthBox() {
   const type = React.useRef<HTMLSelectElement | null>(null);
   const monthRef = React.useRef<HTMLSelectElement | null>(null);
   const description = React.useRef<HTMLTextAreaElement | null>(null);
+  const [currentMonth, setCurrentMonth] = React.useState<string>();
+
+  React.useEffect(() => {
+    const currentDate = new Date();
+    setCurrentMonth(months[currentDate.getMonth()]);
+  }, []);
 
   const toast = useToast();
 
@@ -61,10 +68,23 @@ function CurrentMonthBox() {
   };
   return (
     <div className="w-full sm:w-4/5 lg:w-3/5 mx-auto px-2">
-      <p className="text-6xl font-bold my-5">July</p>
+      <Heading as={"h3"} size={"2xl"} className="text-6xl font-bold mt-5 mb-10">
+        {currentMonth}
+      </Heading>
 
-      <Box borderWidth={`1px`} borderRadius={"lg"} p={2}>
-        <form className="flex flex-col items-center" onSubmit={handleSubmit}>
+      <Box borderWidth={`1px`} borderRadius={"lg"} p={2} className="relative">
+        <Heading
+          as={"h4"}
+          size={"lg"}
+          p={2}
+          className="absolute text -top-8 bg-white "
+        >
+          Add Expense
+        </Heading>
+        <form
+          className="flex flex-col items-center mt-5"
+          onSubmit={handleSubmit}
+        >
           <FormControl isRequired id="name" mb={4}>
             <FormLabel>What was the expense for?</FormLabel>
             <Input

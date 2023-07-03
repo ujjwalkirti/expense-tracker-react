@@ -47,7 +47,7 @@ function LoginBox() {
   return (
     <VStack className="w-full sm:w-4/5 md:w-3/5 mx-auto">
       <form onClick={handleSubmit}>
-        <FormControl mb={4}>
+        <FormControl isRequired mb={4}>
           <FormLabel>Email address</FormLabel>
           <Input
             value={email}
@@ -55,7 +55,7 @@ function LoginBox() {
             type="email"
           />
         </FormControl>
-        <FormControl mb={4}>
+        <FormControl isRequired mb={4}>
           <FormLabel>Password</FormLabel>
           <InputGroup size="md">
             <Input
